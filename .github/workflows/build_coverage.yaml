@@ -38,7 +38,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Enable corepack
         run: corepack enable
@@ -69,5 +69,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           format: cobertura
-          files:
-            - coverage/cobertura-coverage.xml
+          file: coverage/cobertura-coverage.xml
